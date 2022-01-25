@@ -14,8 +14,7 @@ import ru.maksonic.simplenotification.domain.NotificationWorker
 class MainViewModel(application: Application) : ViewModel() {
 
     fun showNotification(context: Context) {
-        val notificationWork = OneTimeWorkRequest.Builder(NotificationWorker::class.java)
-            .build()
+        val notificationWork = OneTimeWorkRequest.Builder(NotificationWorker::class.java).build()
 
         val instanceWorkManager = WorkManager.getInstance(context)
         instanceWorkManager.beginWith(notificationWork).enqueue()
